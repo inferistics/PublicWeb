@@ -1,7 +1,7 @@
 :root{
-  --text: #0e1726;
+  --text: #333333;
   
-  --panel: rgba(255, 255, 255, 0.55);
+  --panel: rgba(255, 255, 255, 0.80);
   --border: rgba(0, 0, 0, 0.15);
   --background: rgba(255, 255, 255, 0.55);
 
@@ -13,7 +13,7 @@
 }
 
 :root.dark{
-  --text: #eef4ff;
+  --text: #dddddd;
   
   --panel: rgba(0, 0, 0, 0.55);
   --border: rgba(255, 255, 255, 0.15);
@@ -34,7 +34,7 @@ html, body{
 body{
   display: flex;
   flex-direction: column;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;
   color: var(--text);
   background: linear-gradient(0, var(--bg-overlay), var(--bg-overlay)), var(--bg-image);
   background-size: cover;

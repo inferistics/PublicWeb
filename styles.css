@@ -3,6 +3,7 @@
   
   --panel: rgba(255, 255, 255, 0.55);
   --border: rgba(0, 0, 0, 0.15);
+  --background: rgba(255, 255, 255, 0.55);
 
   --header-image: url("assets/HeaderLightTransparent323.png");
   --section-logo: url("assets/LogoLightTransparent1683.png");
@@ -12,10 +13,10 @@
 
 :root.dark{
   --text: #eef4ff;
-  --muted: rgba(255, 255, 255, 0.75);
-
+  
   --panel: rgba(0, 0, 0, 0.55);
   --border: rgba(255, 255, 255, 0.15);
+  --background: rgba(0, 0, 0, 0.55);
 
   --header-image: url("assets/HeaderDarkTransparent323.png");
   --section-logo: url("assets/LogoDarkTransparent1683.png");
@@ -48,7 +49,7 @@ a{
   position: sticky;
   z-index: 1024;
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.55);
+  background: var(--background);
   padding: 16px 0;
 }
 

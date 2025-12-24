@@ -1,126 +1,294 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inferistics</title>
-  <meta name="description" content="Inferistics — analytics and insight." />
-  <link rel="icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+:root{
+  --text: #0e1726;
+  --muted: rgba(14, 23, 38, 0.72);
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-strong: rgba(255, 255, 255, 0.95);
+  --border: rgba(14, 23, 38, 0.12);
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand brand-header-image" href="/" aria-label="Inferistics home">
-        <img src="assets/HeaderBase.png" alt="Inferistics" />
-      </a>
+  --btn: #0e1726;
+  --btnText: #ffffff;
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="btn small">Contact</a>
-      </nav>
-    </div>
-  </header>
+  --bg-image: url("assets/BackgroundLight1080.png");
+  --bg-overlay: rgba(255,255,255,0.55);
+}
 
-  <main id="main">
-    <section class="hero" aria-label="Hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <div class="hero-top">
-            <img class="hero-mark" src="assets/LogoLightBase.png" alt="Inferistics logo" />
-            <div>
-              <h1>Turn data into decisions.</h1>
-              <p>
-                Inferistics helps teams make sense of complex information—dashboards, reporting,
-                and practical analytics you can act on.
-              </p>
-            </div>
-          </div>
+:root.dark{
+  --text: #eef4ff;
+  --muted: rgba(238, 244, 255, 0.75);
 
-          <div class="hero-cta">
-            <a class="btn" href="#contact">Get in touch</a>
-            <a class="btn secondary" href="#services">What we do</a>
-          </div>
-        </div>
+  --panel: rgba(0, 0, 0, 0.55);
+  --panel-strong: rgba(0, 0, 0, 0.65);
+  --border: rgba(255, 255, 255, 0.14);
 
-        <aside class="hero-card" aria-label="Highlights">
-          <img class="card-mark" src="assets/LogoLightBase.png" alt="" />
-          <div class="card-text">
-            <h2>Fast, clear, reliable</h2>
-            <p>
-              Lightweight site hosted on Azure Static Web Apps. Updates deploy automatically from GitHub.
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
+  --btn: #eef4ff;
+  --btnText: #0b1020;
 
-    <section id="services" class="section">
-      <div class="container">
-        <h2>Services</h2>
-        <div class="grid">
-          <div class="panel">
-            <h3>Analytics & dashboards</h3>
-            <p>KPIs, reporting, and executive-ready dashboards with clean definitions.</p>
-          </div>
-          <div class="panel">
-            <h3>Data cleanup & pipelines</h3>
-            <p>Make your data trustworthy with repeatable processes and documentation.</p>
-          </div>
-          <div class="panel">
-            <h3>Advisory</h3>
-            <p>Practical recommendations, from metrics design to measurement strategy.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  --bg-image: url("assets/BackgroundDark1080.png");
+  --bg-overlay: rgba(0,0,0,0.45);
+}
 
-    <section id="about" class="section muted">
-      <div class="container">
-        <h2>About</h2>
-        <p>
-          Add a short paragraph about Inferistics here—who you help, what you specialize in, and what makes
-          your approach different.
-        </p>
-      </div>
-    </section>
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>
-          Email: <a href="mailto:corp@inferistics.com">corp@inferistics.com</a>
-        </p>
-      </div>
-    </section>
-  </main>
+body{
+  margin:0;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Inferistics</span>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-        Toggle theme
-      </button>
-    </div>
-  </footer>
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  background:
+    linear-gradient(180deg, var(--bg-overlay), var(--bg-overlay)),
+    var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 
-    const key = "inferistics-theme";
-    const root = document.documentElement;
-    const saved = localStorage.getItem(key);
+main{ flex: 1 0 auto; }
 
-    if (saved === "dark") root.classList.add("dark");
+a{ color: inherit; text-decoration: none; }
+a:hover{ text-decoration: underline; }
 
-    document.getElementById("themeToggle").addEventListener("click", () => {
-      root.classList.toggle("dark");
-      localStorage.setItem(key, root.classList.contains("dark") ? "dark" : "light");
-    });
-  </script>
-</body>
-</html>
+.container{
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top: 8px;
+  padding: 10px 12px;
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.skip-link:focus{
+  left: 12px;
+  z-index: 9999;
+}
+
+/* Header */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.55);
+  padding: 4px 0;
+}
+:root.dark .site-header{ background: rgba(0,0,0,0.35); }
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  min-height: 56px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+}
+
+.brand-header-image img{
+  height: 28px;     /* key sizing fix */
+  width: auto;
+  max-width: 360px; /* prevents giant wordmark */
+  display:block;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  font-weight: 600;
+}
+
+.btn{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--btn);
+  color: var(--btnText);
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+.btn:hover{ text-decoration: none; filter: brightness(1.05); }
+
+.btn.secondary{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn.small{
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Hero */
+.hero{
+  padding: 44px 0 24px;
+}
+
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.hero-copy{
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.hero-top{
+  display:flex;
+  gap: 14px;
+  align-items:flex-start;
+}
+
+.hero-mark{
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.hero-copy h1{
+  margin: 0 0 8px;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.1;
+}
+
+.hero-copy p{
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-cta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-card{
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  display:flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.card-mark{
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.card-text h2{
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.card-text p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Sections */
+.section{
+  padding: 34px 0;
+}
+.section h2{
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+.section p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.section.muted{
+  background: rgba(255,255,255,0.35);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+:root.dark .section.muted{ background: rgba(0,0,0,0.25); }
+
+.grid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.panel{
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.panel h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.panel p{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Footer (pinned by flex layout) */
+.footer{
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,0.55);
+}
+:root.dark .footer{ background: rgba(0,0,0,0.35); }
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.theme-toggle{
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.theme-toggle:hover{ filter: brightness(1.05); }
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: 1fr; }
+  .nav{ gap: 10px; }
+  .brand-header-image img{ height: 24px; max-width: 280px; }
+  .hero-top{ flex-direction: column; }
+  .hero-mark{ width: 110px; height: 110px; }
+}

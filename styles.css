@@ -1,1 +1,237 @@
+:root{
+  --text: #0e1726;
+  --muted: rgba(14, 23, 38, 0.72);
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-strong: rgba(255, 255, 255, 0.92);
+  --border: rgba(14, 23, 38, 0.10);
+  --btn: #0e1726;
+  --btnText: #ffffff;
+
+  --bg-image: url("assets/BackgroundLight1080.png");
+  --logo: url("assets/LogoLightBase.png");
+}
+
+:root.dark{
+  --text: #eef4ff;
+  --muted: rgba(238, 244, 255, 0.75);
+  --panel: rgba(0, 0, 0, 0.40);
+  --panel-strong: rgba(0, 0, 0, 0.55);
+  --border: rgba(255, 255, 255, 0.12);
+  --btn: #eef4ff;
+  --btnText: #0b1020;
+
+  --bg-image: url("assets/BackgroundDark1080.png");
+  /* Swap logo images used in markup by CSS only if desired later */
+}
+
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.0)),
+    var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+a{ color: inherit; text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.container{
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header{
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.55);
+}
+:root.dark .site-header{ background: rgba(0,0,0,0.35); }
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.brand-mark{
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.brand-name{
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  font-weight: 600;
+}
+
+.btn{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--btn);
+  color: var(--btnText);
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+.btn:hover{ text-decoration: none; filter: brightness(1.05); }
+
+.btn.secondary{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.hero{
+  padding: 56px 0 24px;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.hero-wordmark{
+  width: min(520px, 100%);
+  height: auto;
+  display:block;
+  margin-bottom: 10px;
+}
+
+.hero-copy{
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.hero-copy h1{
+  margin: 8px 0 8px;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.1;
+}
+.hero-copy p{
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-cta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-card{
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  display:flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.hero-logo{
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.section{
+  padding: 34px 0;
+}
+.section h2{
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+.section p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.section.muted{
+  background: rgba(255,255,255,0.35);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+:root.dark .section.muted{ background: rgba(0,0,0,0.25); }
+
+.grid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.panel{
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.panel h3{
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.panel p{
+  margin: 0;
+  color: var(--muted);
+}
+
+.footer{
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,0.55);
+}
+:root.dark .footer{ background: rgba(0,0,0,0.35); }
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.theme-toggle{
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.theme-toggle:hover{ filter: brightness(1.05); }
+
+@media (max-width: 900px){
+  .hero-inner{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: 1fr; }
+  .nav{ gap: 10px; }
+}
 

@@ -10,31 +10,36 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">
-        <img class="brand-mark" src="assets/HeaderBase.png" alt="Inferistics logo" />
-        <span class="brand-name">Inferistics</span>
+      <a class="brand brand-header-image" href="/" aria-label="Inferistics home">
+        <img src="assets/HeaderBase.png" alt="Inferistics" />
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a href="#contact" class="btn">Contact</a>
+        <a href="#contact" class="btn small">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main">
+    <section class="hero" aria-label="Hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <img class="hero-wordmark" src="assets/LogoLightBase.png" alt="Inferistics" />
-          <h1>Turn data into decisions.</h1>
-          <p>
-            Inferistics helps teams make sense of complex information—dashboards, reporting,
-            and practical analytics you can act on.
-          </p>
+          <div class="hero-top">
+            <img class="hero-mark" src="assets/LogoLightBase.png" alt="Inferistics logo" />
+            <div>
+              <h1>Turn data into decisions.</h1>
+              <p>
+                Inferistics helps teams make sense of complex information—dashboards, reporting,
+                and practical analytics you can act on.
+              </p>
+            </div>
+          </div>
 
           <div class="hero-cta">
             <a class="btn" href="#contact">Get in touch</a>
@@ -42,15 +47,15 @@
           </div>
         </div>
 
-        <div class="hero-card">
-          <img class="hero-logo" src="assets/LogoLightBase.png" alt="Inferistics logo" />
+        <aside class="hero-card" aria-label="Highlights">
+          <img class="card-mark" src="assets/LogoLightBase.png" alt="" />
           <div class="card-text">
             <h2>Fast, clear, reliable</h2>
             <p>
               Lightweight site hosted on Azure Static Web Apps. Updates deploy automatically from GitHub.
             </p>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -89,8 +94,6 @@
         <h2>Contact</h2>
         <p>
           Email: <a href="mailto:corp@inferistics.com">corp@inferistics.com</a>
-          <br />
-          Or add a simple contact form later.
         </p>
       </div>
     </section>
@@ -99,14 +102,13 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© <span id="year"></span> Inferistics</span>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
         Toggle theme
       </button>
     </div>
   </footer>
 
   <script>
-    // small niceties: year + theme toggle
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const key = "inferistics-theme";

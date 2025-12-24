@@ -1,1 +1,124 @@
-HELLO WORLD ! ! !
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inferistics</title>
+  <meta name="description" content="Inferistics — analytics and insight." />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="assets/LogoLightBase.png" alt="Inferistics logo" />
+        <span class="brand-name">Inferistics</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <img class="hero-wordmark" src="assets/HeaderBase.png" alt="Inferistics" />
+          <h1>Turn data into decisions.</h1>
+          <p>
+            Inferistics helps teams make sense of complex information—dashboards, reporting,
+            and practical analytics you can act on.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Get in touch</a>
+            <a class="btn secondary" href="#services">What we do</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img class="hero-logo" src="assets/LogoLightBase.png" alt="Inferistics logo" />
+          <div class="card-text">
+            <h2>Fast, clear, reliable</h2>
+            <p>
+              Lightweight site hosted on Azure Static Web Apps. Updates deploy automatically from GitHub.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="grid">
+          <div class="panel">
+            <h3>Analytics & dashboards</h3>
+            <p>KPIs, reporting, and executive-ready dashboards with clean definitions.</p>
+          </div>
+          <div class="panel">
+            <h3>Data cleanup & pipelines</h3>
+            <p>Make your data trustworthy with repeatable processes and documentation.</p>
+          </div>
+          <div class="panel">
+            <h3>Advisory</h3>
+            <p>Practical recommendations, from metrics design to measurement strategy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section muted">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          Add a short paragraph about Inferistics here—who you help, what you specialize in, and what makes
+          your approach different.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>
+          Email: <a href="mailto:hello@inferistics.com">hello@inferistics.com</a>
+          <br />
+          Or add a simple contact form later.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Inferistics</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        Toggle theme
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    // small niceties: year + theme toggle
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const key = "inferistics-theme";
+    const root = document.documentElement;
+    const saved = localStorage.getItem(key);
+
+    if (saved === "dark") root.classList.add("dark");
+
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      root.classList.toggle("dark");
+      localStorage.setItem(key, root.classList.contains("dark") ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>

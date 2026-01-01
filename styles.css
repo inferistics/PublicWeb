@@ -5,10 +5,10 @@
   --border: rgba(0, 0, 0, 0.15);
   --background: rgba(255, 255, 255, 0.55);
 
-  --header-image: url("assets/HeaderLightTransparent323.png");
-  --section-logo: url("assets/LogoLightTransparent1885.png");
-  --section-tag: url("assets/icon32LightTransparent.png");
-  --bg-image: url("assets/BackgroundLight2160.png");
+  --header-image: url("assets/HeaderLightTransparent323.webp");
+  --section-logo: url("assets/LogoLightTransparent1885.webp");
+  --section-tag: url("assets/icon32LightTransparent.webp");
+  --bg-image: url("assets/BackgroundLight2160.webp");
   --bg-overlay: rgba(255,255,255,0.55);
 }
 
@@ -19,10 +19,10 @@
   --border: rgba(255, 255, 255, 0.15);
   --background: rgba(0, 0, 0, 0.55);
 
-  --header-image: url("assets/HeaderDarkTransparent323.png");
-  --section-logo: url("assets/LogoDarkTransparent1885.png");
-  --section-tag: url("assets/icon32DarkTransparent.png");
-  --bg-image: url("assets/BackgroundDark2160.png");
+  --header-image: url("assets/HeaderDarkTransparent323.webp");
+  --section-logo: url("assets/LogoDarkTransparent1885.webp");
+  --section-tag: url("assets/icon32DarkTransparent.webp");
+  --bg-image: url("assets/BackgroundDark2160.webp");
   --bg-overlay: rgba(0,0,0,0.55);
 }
 
